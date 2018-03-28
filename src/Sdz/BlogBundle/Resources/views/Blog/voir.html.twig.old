@@ -1,0 +1,23 @@
+{# src/Sdz/BlogBundle/Resources/views/Blog/voir.html.twig #}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bienvenue sur ma première page avec le Site du Zéro !</title>
+  </head>
+  <body>
+    <h1>Lecture d'un article</h1>
+
+    <p>
+      {# On affiche tous les messages flash dont le nom est « info » #}
+      {% for message in app.session.flashbag.get('info') %}
+        <p>{{ message }}</p>
+      {% endfor %}
+    </p>
+
+    <p>
+      Ici nous pourrons lire l'article ayant comme id : {{ id }}<br />
+      Mais pour l'instant, nous ne savons pas encore le faire, cela viendra !
+    </p>
+  </body>
+</html>

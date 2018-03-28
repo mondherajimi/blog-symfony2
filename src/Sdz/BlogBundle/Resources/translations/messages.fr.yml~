@@ -1,0 +1,8 @@
+# src/Sdz/BlogBundle/Resources/translations/messages.fr.yml
+
+# La syntaxe est : « la chaîne source: la chaîne cible »
+Symfony2 is great: J'aime Symfony2
+"Phone number:": Numéro de téléphone :
+Hello: Bonjour
+Bye: Au revoir
+cancel : annuler

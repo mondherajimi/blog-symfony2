@@ -1,0 +1,59 @@
+{# src/Sdz/BlogBundle/Resources/views/Blog/traduction.html.twig #}
+
+<html>
+  <body>
+	{{ 'Hello'|trans({'%name%': name}) }}
+	{{ 'Bye'|trans }} {{ name }}!
+	{{ 'article.edit.title'|trans }}
+	{% for i in 0..2 %}
+	<p>{{ ('charte.donnee.' ~ i )|trans }}</p>
+{% endfor %}
+	<div>
+{#  <p>{{ message|trans }}</p>     #}
+  <button>{{ 'cancel'|trans }}</button>
+  <button>{{ 'validate'|trans }}</button>
+</div>
+
+<p>
+{#  {% trans %}Hello{% endtrans %} #}
+</p>
+{# {{ 'Hello'|trans({}, 'messages') }} #}
+{# {% trans from 'messages' %}Hello{% endtrans %} #}
+
+
+{% trans with {'%name%': name} %}Bye{% endtrans %}
+
+{{ 'Bye'|trans({'%name%': name}) }}
+
+{{ 'Hello'|trans({'%name%': 'moi-même'}) }}
+
+{# Dans une vue #}
+{# Attention, ceci est un mauvais exemple, à ne pas utiliser ! #}
+
+{% if nombre <= 1 %}
+  {{ 'article.nombre.singulier'|trans({'%count%': nombre}) }}
+{% else %}
+  {{ 'article.nombre.pluriel'|trans({'%count%': nombre}) }}
+{% endif %}
+
+{{ 'article.nombre'|transchoice(nombre) }}
+{% transchoice nombre %}article.nombre{% endtranschoice %}
+
+{{ date|localizeddate(dateFormat, timeFormat, locale) }}
+
+Aujourd'hui nous sommes le {{ 'now'|localizeddate('full', 'none') }} et il est {{ 'now'|localizeddate('none', 'short') }}
+
+
+{# Texte simple #}
+{% trans with {'%placeholder%': placeholderValue} from 'domaine' into locale %}maChaîne{% endtrans %}
+
+{# Texte avec gestion de pluriels #}
+{% transchoice count with {'%placeholder%': placeholderValue} from 'domaine' into locale %}maChaîne{% endtranschoice %}
+
+{# Texte simple #}
+{{ 'maChaîne'|trans({'%placeholder%': placeholderValue}, 'domaine', locale) }}
+
+{# Texte avec gestion de pluriels #}
+{{ 'maChaîne'|transchoice (count,  {'%placeholder%': placeholderValue}, 'domaine', locale) }}
+  </body>
+</html>

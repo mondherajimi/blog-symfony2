@@ -1,0 +1,7 @@
+'Symfony2 is great': 'J''aime Symfony2'
+'Phone number:': 'Numéro de téléphone :'
+Hello: Guten Tag
+Bye: 'Au revoir'
+cancel: annuler
+validate: __validate
+'Hello .': '__Hello .'
